@@ -1,4 +1,7 @@
 package com.company;
 
-public class AccountStatusChange {
+public interface AccountStatusChange {
+
+
+    public void statusChange();
 }

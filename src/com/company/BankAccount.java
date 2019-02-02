@@ -2,13 +2,13 @@ package com.company;
 
 import java.math.BigDecimal;
 
-public class BankAccount extends Account implements AccountTransaction {
+public class BankAccount extends Account implements AccountTransaction,AccountAddBonus {
 
     private String bankName;
     private String bankLocalization;
 
-    public BankAccount(String firstName, String lastName, Long accountNumber, BigDecimal money,String bankName, String bankLocalization) {
-        super(firstName, lastName, accountNumber, money);
+    public BankAccount(String firstName, String lastName, Long accountNumber, BigDecimal money,Boolean accountActive,String bankName, String bankLocalization, AccountType accountType) {
+        super(firstName, lastName, accountNumber, money, accountActive, accountType);
         this.bankName = bankName;
         this.bankLocalization = bankLocalization;
     }
@@ -41,5 +41,11 @@ public class BankAccount extends Account implements AccountTransaction {
                 "bankName='" + bankName + '\'' +
                 ", bankLocalization='" + bankLocalization + '\'' +
                 '}';
+    }
+
+    @Override
+    public BigDecimal addBonus100( BigDecimal bonus) {
+         super.setMoney(super.getMoney().add(bonus));
+        return super.getMoney();
     }
 }

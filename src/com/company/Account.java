@@ -8,16 +8,21 @@ public abstract class Account {
     private String lastName;
     private Long accountNumber;
     private BigDecimal money;
+    private Boolean accountActive;
+    private AccountType accountType;
 
     public Account() {
 
     }
 
-    public Account(String firstName, String lastName, Long accountNumber, BigDecimal money) {
+
+    public Account(String firstName, String lastName, Long accountNumber, BigDecimal money, Boolean accountActive, AccountType accountType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.accountNumber = accountNumber;
         this.money = money;
+        this.accountActive= accountActive;
+        this.accountType = accountType;
     }
 
     public String getFirstName() {
@@ -52,4 +57,31 @@ public abstract class Account {
         this.money = money;
     }
 
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public Boolean getAccountActive() {
+        return accountActive;
+    }
+
+    public void setAccountActive(Boolean accountActive) {
+        this.accountActive = accountActive;
+    }
+
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", money=" + money +
+                ", accountActive=" + accountActive +
+                '}';
+    }
 }
